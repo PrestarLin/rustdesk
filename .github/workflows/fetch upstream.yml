@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: fetch upstream
-        uses: tgymnich/fork-sync@v1.3
+        uses: tgymnich/fork-sync@v2.0
         with:
           owner: rustdesk
           base: master
           head: master
-          auto_approve: true
+          # auto_approve: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Delete workflow runs
