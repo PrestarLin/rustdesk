@@ -1,7 +1,8 @@
-name: fetch upstream 
+name: Sync Fork
+
 on:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '*/30 * * * *' # every 30 minutes
   workflow_dispatch: # on button click
 
 jobs:
@@ -10,14 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: fetch upstream
-        uses: tgymnich/fork-sync@v2.0
+      - uses: tgymnich/fork-sync@v2.0
         with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
           owner: rustdesk
           base: master
           head: master
-          auto_approve: true
-          token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
