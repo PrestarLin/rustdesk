@@ -16,13 +16,13 @@ jobs:
           owner: rustdesk
           base: master
           head: master
-          # auto_approve: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          auto_approve: true
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKEN}}
           repository: ${{ github.repository }}
           retain_days: 7
           keep_minimum_runs: 7
